@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Student Score</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">📊 Enter Student Details</h2>
+
+        <form method="POST" action="/predictdata" class="bg-white p-4 rounded shadow-sm">
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Gender</label>
+                    <select name="gender" class="form-select" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Race/Ethnicity</label>
+                    <select name="ethnicity" class="form-select" required>
+                        <option value="group A">Group A</option>
+                        <option value="group B">Group B</option>
+                        <option value="group C">Group C</option>
+                        <option value="group D">Group D</option>
+                        <option value="group E">Group E</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Parental Level of Education</label>
+                <select name="parental_level_of_education" class="form-select" required>
+                    <option value="high school">High School</option>
+                    <option value="some college">Some College</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="master's degree">Master's Degree</option>
+                </select>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Lunch</label>
+                    <select name="lunch" class="form-select" required>
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free/Reduced</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Test Preparation Course</label>
+                    <select name="test_preparation_course" class="form-select" required>
+                        <option value="none">None</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Reading Score</label>
+                    <input type="number" name="reading_score" class="form-control" min="0" max="100" required>
+                </div>
+                <div class="col">
+                    <label class="form-label">Writing Score</label>
+                    <input type="number" name="writing_score" class="form-control" min="0" max="100" required>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">Predict Math Score</button>
+            </div>
+        </form>
+
+        {% if results is defined %}
+        <div class="alert alert-info mt-4 text-center">
+            <h4 class="mb-0">📈 Predicted Math Score: <strong>{{ results }}</strong></h4>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

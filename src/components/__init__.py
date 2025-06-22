@@ -1,0 +1,1 @@
+# components created as package and it also can be exported and imported to someother file location
